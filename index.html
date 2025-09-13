@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Attendance</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script> <!-- For QR -->
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Smart Attendance System</h2>
+  
+  <!-- Faculty Section -->
+  <div id="faculty">
+    <h3>Faculty Panel</h3>
+    <button onclick="generateQR()">Generate QR Code</button>
+    <canvas id="qr"></canvas>
+  </div>
+
+  <!-- Student Section -->
+<div id="student" >
+  <h3>Student Panel</h3>
+  <div id="reader"></div>
+  <button onclick="startScanner()">Start Scanner</button>
+  <button onclick="stopScanner()">Stop Scanner</button>
+</div>
+
+
+  <!-- Dashboard -->
+<div id="dashboard" >
+  <h3>Attendance Dashboard</h3>
+  <ul id="attendanceList"></ul>
+
+  <h3>📊 Attendance Summary</h3>
+  <table border="1" id="summaryTable">
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Classes Attended</th>
+        <th>Total Classes</th>
+        <th>Attendance %</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
